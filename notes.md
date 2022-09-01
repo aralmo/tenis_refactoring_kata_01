@@ -31,3 +31,22 @@ Tests names should be descriptive of what it´s expected to improve readability 
 - Try to avoid hard to understand algorithms like the for that was used to append player 1 and 2 scores. Readability should never be neglected, it makes code easier to debug in case of issues and also improves productivity in the long term.
 
 
+## Emily Bache Q-A
+
+- How did it feel to work with such fast, comprehensive tests?
+Bitter sweet, sweet to have full black box coverage on the generated scores, bitter in that they didn´t had clear facts defined.
+
+Did you make mistakes while refactoring that were caught by the tests?
+Yes, I did a typo and was adding both players score from player 1, that was caught by the tests.
+
+If you used a tool to record your test runs, review it. Could you have taken smaller steps? Made fewer refactoring mistakes?
+Not in the mistake I did, but could have used some unit tests for smaller parts for sure.
+
+Did you ever make any refactoring mistakes and then back out your changes? How did it feel to throw away code?
+It's fine I usually rollback if I could not finish something and had to context switch, no big deal.
+
+What would you say to your colleague if they had written this code?
+Would have gave him the recommendations above.
+
+What would you say to your boss about the value of this refactoring work? Was there more reason to do it over and above the extra billable hour or so?
+It deppends on how we take this, if it was a big project and not a so simple logic check explanation above, otherwise if that was the whole application purpose and we are pretty sure that Tennis is not gonna be changin rules soon, then I think not, proper coverage to ensure it´s fine should be enough.
