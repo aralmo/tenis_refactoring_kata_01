@@ -46,7 +46,7 @@ Did you ever make any refactoring mistakes and then back out your changes? How d
 It's fine I usually rollback if I could not finish something and had to context switch, no big deal.
 
 What would you say to your colleague if they had written this code?
-Would have gave him the recommendations above.
+If he was just a college or very serious just the recommendations above. (Otherwise if he was a friend would have theatrically made like I was ripping my eyes from my face and throwing them away.) 
 
 What would you say to your boss about the value of this refactoring work? Was there more reason to do it over and above the extra billable hour or so?
 It deppends on how we take this, if it was a big project and not a so simple logic check explanation above, otherwise if that was the whole application purpose and we are pretty sure that Tennis is not gonna be changin rules soon, then I think not, proper coverage to ensure it´s fine should be enough.
