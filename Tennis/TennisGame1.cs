@@ -25,11 +25,9 @@ namespace Tennis
         {
             if (m_score1 == m_score2)
             {
-                return m_score1 switch
-                {
-                    int score when score < 3 => $"{ScoreStringFor(score)}-All",
-                    _ => "Deuce"
-                };
+                return m_score1 < 3 ? 
+                    $"{ScoreStringFor(m_score1)}-All" : 
+                    "Deuce";
             }
 
             if (m_score1 >= 4 || m_score2 >= 4)
