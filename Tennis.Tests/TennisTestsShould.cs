@@ -95,6 +95,25 @@ namespace Tennis.Tests
             }
         }
 
+        [Fact]
+        public void ReturnWinWhenPlayerTwoPointsAheadAndOverThirty()
+        {
+            string p1Name = Guid.NewGuid().ToString();
+            string p2Name = Guid.NewGuid().ToString();
+
+
+            //player 1 wins
+            var game = new TennisGame1(p1Name, p2Name);
+            AddGamePoints(game, p1Name, 4);
+            Assert.Equal($"Win for {p1Name}", game.GetScore());
+
+            //player 2 wins
+            game = new TennisGame1(p1Name, p2Name);
+            AddGamePoints(game, p2Name, 4);
+            Assert.Equal($"Win for {p2Name}", game.GetScore());
+
+        }
+        
         private static void AddGamePoints(ITennisGame game, string player, int points)
         {
             for(int i = 0; i < points; i ++)
