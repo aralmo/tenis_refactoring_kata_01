@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Tennis
 {
     public class TennisGame1 : ITennisGame
@@ -23,40 +25,28 @@ namespace Tennis
 
         public string GetScore()
         {
-            string score = "";
-            var tempScore = 0;
             if (m_score1 == m_score2)
             {
-                switch (m_score1)
-                {
-                    case 0:
-                        score = "Love-All";
-                        break;
-                    case 1:
-                        score = "Fifteen-All";
-                        break;
-                    case 2:
-                        score = "Thirty-All";
-                        break;
-                    default:
-                        score = "Deuce";
-                        break;
+                if (m_score1 > 2)
+                    return $"{PointsStringFor(m_score1)}-All";
 
-                }
+                return "Deuce";
             }
             else if (m_score1 >= 4 || m_score2 >= 4)
             {
+                string score;
                 var minusResult = m_score1 - m_score2;
                 if (minusResult == 1) score = "Advantage player1";
                 else if (minusResult == -1) score = "Advantage player2";
                 else if (minusResult >= 2) score = "Win for player1";
                 else score = "Win for player2";
+
+                return score;
             }
             else
             {
                 return $"{PointsStringFor(m_score1)}-{PointsStringFor(m_score2)}";
             }
-            return score;
         }
 
         private static string PointsStringFor(int points)
@@ -69,7 +59,5 @@ namespace Tennis
                 3 => "Forty"
             };
         }
-        
     }
 }
-
