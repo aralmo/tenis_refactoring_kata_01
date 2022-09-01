@@ -70,12 +70,8 @@ namespace Tennis.Tests
 
             var game = new TennisGame1(p1Name, p2Name);
             
-            //apply points to both players
-            for (int i = 0; i < points; i++)
-            {
-                game.WonPoint(p1Name);
-                game.WonPoint(p2Name);
-            }
+            AddGamePoints(game, p1Name, points);
+            AddGamePoints(game,p2Name, points);
             
             Assert.Equal($"{scoreString}-All", game.GetScore());
         }
@@ -88,12 +84,9 @@ namespace Tennis.Tests
 
             var game = new TennisGame1(p1Name, p2Name);
 
-            for (int i = 0; i < 3; i++)
-            {
-                game.WonPoint(p1Name);
-                game.WonPoint(p2Name);
-            }
-
+            AddGamePoints(game, p1Name, 3);
+            AddGamePoints(game, p2Name, 3);
+            
             for (int i = 0; i < 10; i++)
             {
                 game.WonPoint(p1Name);
@@ -101,7 +94,12 @@ namespace Tennis.Tests
                 Assert.Equal("Deuce", game.GetScore());
             }
         }
-        
+
+        private static void AddGamePoints(ITennisGame game, string player, int points)
+        {
+            for(int i = 0; i < points; i ++)
+                game.WonPoint(player);
+        }
 
         
         
