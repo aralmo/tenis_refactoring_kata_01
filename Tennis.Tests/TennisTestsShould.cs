@@ -49,7 +49,7 @@ namespace Tennis.Tests
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 
-    public class TennisTests
+    public class TennisTestsShould
     {
         [Theory]
         [ClassData(typeof(TestDataGenerator))]
@@ -58,6 +58,30 @@ namespace Tennis.Tests
             var game = new TennisGame1("player1", "player2");
             CheckAllScores(game, p1, p2, expected);
         }
+
+        [Theory]
+        [InlineData(0,"Love")]
+        [InlineData(1,"Fifteen")]
+        [InlineData(2,"Thirty")]
+        [InlineData(3,"Deuce")]
+        [InlineData(4,"Deuce")]
+        public void ReturnScoreAllWhenBothPlayersAreEqualAndNotOverFifteen(int points, string scoreString)
+        {
+            string p1Name = Guid.NewGuid().ToString();
+            string p2Name = Guid.NewGuid().ToString();
+
+            var game = new TennisGame1(p1Name, p2Name);
+            
+            //apply points to both players
+            for (int i = 0; i < points; i++)
+            {
+                game.WonPoint(p1Name);
+                game.WonPoint(p2Name);
+            }
+            
+            Assert.Equal($"{scoreString}-All", game.GetScore());
+        }
+        
 
         [Theory]
         [ClassData(typeof(TestDataGenerator))]
