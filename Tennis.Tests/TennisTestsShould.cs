@@ -63,8 +63,6 @@ namespace Tennis.Tests
         [InlineData(0,"Love")]
         [InlineData(1,"Fifteen")]
         [InlineData(2,"Thirty")]
-        [InlineData(3,"Deuce")]
-        [InlineData(4,"Deuce")]
         public void ReturnScoreAllWhenBothPlayersAreEqualAndNotOverFifteen(int points, string scoreString)
         {
             string p1Name = Guid.NewGuid().ToString();
@@ -82,7 +80,17 @@ namespace Tennis.Tests
             Assert.Equal($"{scoreString}-All", game.GetScore());
         }
         
+        
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
         [Theory]
         [ClassData(typeof(TestDataGenerator))]
         public void Tennis2Test(int p1, int p2, string expected)
