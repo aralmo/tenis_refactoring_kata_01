@@ -127,7 +127,7 @@ namespace Tennis.Tests
             //player 2 wins
             game = new TennisGame1(p1Name, p2Name);
             AddGamePoints(game, p2Name, 4);
-            AddGamePoints(game, p1Name, 4);
+            AddGamePoints(game, p1Name, 3);
             Assert.Equal($"Advantage {p2Name}", game.GetScore());
         }
 
