@@ -4,7 +4,7 @@
 
 - Code review (20mins)
 - Added extra test coverage (30mins)
-- Refactor immediate return for readability
+- Refactor immediate return for readability (6mins)
 
 ## recommendations
 

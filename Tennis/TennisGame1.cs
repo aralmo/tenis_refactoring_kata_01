@@ -23,18 +23,15 @@ namespace Tennis
 
         public string GetScore()
         {
-            var tempScore = 0;
             if (m_score1 == m_score2)
             {
                 return m_score1 switch
                 {
-                    0 => "Love-All",
-                    1 => "Fifteen-All",
-                    2 => "Thirty-All",
+                    int score when score < 3 => $"{ScoreStringFor(score)}-All",
                     _ => "Deuce"
                 };
-            } 
-            
+            }
+
             if (m_score1 >= 4 || m_score2 >= 4)
             {
                 var minusResult = m_score1 - m_score2;
@@ -43,32 +40,19 @@ namespace Tennis
                 if (minusResult >= 2) return $"Win for {player1Name}";
                 return $"Win for {player2Name}";
             }
-            else
+
+            return $"{ScoreStringFor(m_score1)}-{ScoreStringFor(m_score2)}";
+        }
+
+        private static string ScoreStringFor(int score)
+        {
+            return score switch
             {
-                string score = string.Empty;
-                for (var i = 1; i < 3; i++)
-                {
-                    if (i == 1) tempScore = m_score1;
-                    else { score += "-"; tempScore = m_score2; }
-                    switch (tempScore)
-                    {
-                        case 0:
-                            score += "Love";
-                            break;
-                        case 1:
-                            score += "Fifteen";
-                            break;
-                        case 2:
-                            score += "Thirty";
-                            break;
-                        case 3:
-                            score += "Forty";
-                            break;
-                    }
-                }
-                return score;
-            }
+                0 => "Love",
+                1 => "Fifteen",
+                2 => "Thirty",
+                3 => "Forty"
+            };
         }
     }
 }
-
