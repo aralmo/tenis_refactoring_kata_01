@@ -63,7 +63,7 @@ namespace Tennis.Tests
         [InlineData(0,"Love")]
         [InlineData(1,"Fifteen")]
         [InlineData(2,"Thirty")]
-        public void ReturnScoreAllWhenBothPlayersAreEqualAndNotOverFifteen(int points, string scoreString)
+        public void ReturnScoreAllWhenBothPlayersAreEqualAndNotOverThirty(int points, string scoreString)
         {
             string p1Name = Guid.NewGuid().ToString();
             string p2Name = Guid.NewGuid().ToString();
@@ -79,7 +79,28 @@ namespace Tennis.Tests
             
             Assert.Equal($"{scoreString}-All", game.GetScore());
         }
-        
+
+        [Fact]
+        public void ReturnDeuceWhenBothPlayersEqualAndOverThirty()
+        {
+            string p1Name = Guid.NewGuid().ToString();
+            string p2Name = Guid.NewGuid().ToString();
+
+            var game = new TennisGame1(p1Name, p2Name);
+
+            for (int i = 0; i < 3; i++)
+            {
+                game.WonPoint(p1Name);
+                game.WonPoint(p2Name);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                game.WonPoint(p1Name);
+                game.WonPoint(p2Name);
+                Assert.Equal("Deuce", game.GetScore());
+            }
+        }
         
 
         
