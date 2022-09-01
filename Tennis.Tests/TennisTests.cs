@@ -56,7 +56,7 @@ namespace Tennis.Tests
         public void Tennis1Test(int p1, int p2, string expected)
         {
             var game = new TennisGame1("player1", "player2");
-            CheckAllScores(game, p1, p2, expected);
+            CheckAllScoresForPlayers("player1", "player2",game, p1, p2, expected);
         }
 
         [Theory]
@@ -88,5 +88,22 @@ namespace Tennis.Tests
 
             Assert.Equal(expectedScore, game.GetScore());
         }
+
+
+        private void CheckAllScoresForPlayers(string player1Name, string player2Name, ITennisGame game,
+            int player1Score, int player2Score, string expectedScore)
+        {
+            var highestScore = Math.Max(player1Score, player2Score);
+            for (var i = 0; i < highestScore; i++)
+            {
+                if (i < player1Score)
+                    game.WonPoint(player1Name);
+                if (i < player2Score)
+                    game.WonPoint(player2Name);
+            }
+
+            Assert.Equal(expectedScore, game.GetScore());
+        }
     }
+
 }
