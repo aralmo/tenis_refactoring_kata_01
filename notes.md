@@ -15,7 +15,7 @@ Keeping code "in shape" by refactoring and doing proper testing has several bene
 
 Some of the benefits of having clean tested code are: 
 
-- Applications less prone to errors; Good testing methodology and practices are proben to give a more resilient source code that can grow in time, without breaking due to side effects, after a future feature addition or change in requirements.
+- Applications less prone to errors; Good testing methodology and practices are proben to give a more resilient source code that can grow in time, without breaking due to side effects after a future feature addition or change in requirements.
 
 - Better long term productivity; Both having less errors and a properly architected solution and test coverage provide a good base to build on. This avoids the typical productivity lost seen in projects with long life spans that don't follow this rules. It also allows for easier and smoother onboarding of new developers that will need much less support to understand the current code base.
 
